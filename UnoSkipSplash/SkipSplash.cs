@@ -19,30 +19,38 @@ namespace UnoSkipSplash
         }
 
         private static HarmonyLib.Harmony harmonyInstanceStatic;
+        private static MelonLogger.Instance loggerInstanceStatic;
 
         public override void OnApplicationStart()
         {
+            loggerInstanceStatic = LoggerInstance;
             harmonyInstanceStatic = HarmonyInstance;
             harmonyInstanceStatic.Patch(typeof(SplashScreen).GetMethod("begin", BindingFlags.Instance | BindingFlags.NonPublic), GetPatch(nameof(BeginPrefix)));
+
             harmonyInstanceStatic.Patch(typeof(TitleScreenManager).GetMethod("Update", BindingFlags.Instance | BindingFlags.NonPublic), GetPatch(nameof(TitlePrefix)), GetPatch(nameof(TitlePostfix)));
+            harmonyInstanceStatic.Patch(typeof(Input).GetProperty("anyKey").GetGetMethod(), postfix: GetPatch(nameof(AnyKeyPostfix)));
         }
 
+
+        private static bool isTitleUpdate = false;
         private static bool TitlePrefix()
         {
-            harmonyInstanceStatic.Patch(typeof(Input).GetProperty("anyKey").GetGetMethod(), postfix: GetPatch(nameof(AnyKeyPostfix)));
+            loggerInstanceStatic.Msg("TitlePrefix");
+            isTitleUpdate = true;
             return true;
         }
 
         private static void AnyKeyPostfix(ref bool __result)
         {
-            __result = true;
+            loggerInstanceStatic.Msg("AnyKeyPostfix");
+            if(isTitleUpdate)
+                __result = true;
         }
 
         private static void TitlePostfix()
         {
-            harmonyInstanceStatic.Unpatch(typeof(TitleScreenManager).GetMethod("Update", BindingFlags.Instance | BindingFlags.NonPublic), HarmonyPatchType.Prefix);
-            harmonyInstanceStatic.Unpatch(typeof(TitleScreenManager).GetMethod("Update", BindingFlags.Instance | BindingFlags.NonPublic), HarmonyPatchType.Postfix);
-            harmonyInstanceStatic.Unpatch(typeof(Input).GetProperty("anyKey").GetGetMethod(), HarmonyPatchType.Postfix);
+            loggerInstanceStatic.Msg("TitlePostfix");
+            isTitleUpdate = false;
         }
 
 
