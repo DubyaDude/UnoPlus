@@ -42,7 +42,7 @@ namespace UnoSkipSplash
         {
             harmonyInstanceStatic.Unpatch(typeof(TitleScreenManager).GetMethod("Update", BindingFlags.Instance | BindingFlags.NonPublic), HarmonyPatchType.Prefix);
             harmonyInstanceStatic.Unpatch(typeof(TitleScreenManager).GetMethod("Update", BindingFlags.Instance | BindingFlags.NonPublic), HarmonyPatchType.Postfix);
-            harmonyInstanceStatic.Unpatch(typeof(Input).GetProperty("anyKey").GetGetMethod(), HarmonyPatchType.Prefix);
+            harmonyInstanceStatic.Unpatch(typeof(Input).GetProperty("anyKey").GetGetMethod(), HarmonyPatchType.Postfix);
         }
 
 
