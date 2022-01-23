@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnoSkipSplash", "UnoSkipSplash\UnoSkipSplash.csproj", "{AC90D3DC-465A-4F85-86F3-0E42FADB1CD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnoSingleConsole", "UnoSingleConsole\UnoSingleConsole.csproj", "{369B611B-0C70-4C89-869B-112785990658}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC90D3DC-465A-4F85-86F3-0E42FADB1CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC90D3DC-465A-4F85-86F3-0E42FADB1CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC90D3DC-465A-4F85-86F3-0E42FADB1CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC90D3DC-465A-4F85-86F3-0E42FADB1CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369B611B-0C70-4C89-869B-112785990658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369B611B-0C70-4C89-869B-112785990658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369B611B-0C70-4C89-869B-112785990658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369B611B-0C70-4C89-869B-112785990658}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92C97687-A191-48D3-95E5-6A44AA4ADBAF}
+	EndGlobalSection
+EndGlobal
