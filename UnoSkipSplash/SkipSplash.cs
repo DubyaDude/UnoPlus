@@ -35,21 +35,18 @@ namespace UnoSkipSplash
         private static bool isTitleUpdate = false;
         private static bool TitlePrefix()
         {
-            loggerInstanceStatic.Msg("TitlePrefix");
             isTitleUpdate = true;
             return true;
         }
 
         private static void AnyKeyPostfix(ref bool __result)
         {
-            loggerInstanceStatic.Msg("AnyKeyPostfix");
             if(isTitleUpdate)
                 __result = true;
         }
 
         private static void TitlePostfix()
         {
-            loggerInstanceStatic.Msg("TitlePostfix");
             isTitleUpdate = false;
         }
 
